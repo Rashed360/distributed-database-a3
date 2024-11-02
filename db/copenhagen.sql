@@ -1,23 +1,14 @@
-INSERT INTO Workers (FirstName, LastName, Salary, Location) VALUES
-('Lucas', 'Lee', 52000, 'Copenhagen'),
-('Mia', 'White', 54000, 'Copenhagen'),
-('Ethan', 'Hall', 50000, 'Copenhagen'),
-('Emma', 'Young', 53000, 'Copenhagen'),
-('Ava', 'King', 51000, 'Copenhagen');
-
 INSERT INTO WorkerData (WorkerId, WorkHours, OvertimeHours) VALUES
-(11, 40, 3),
-(12, 40, 2),
-(13, 40, 4),
-(14, 40, 5),
-(15, 40, 1);
-
-INSERT INTO Projects (ProjectName, Location, TotalWorkers, TotalWorkHours) VALUES
-('Project3', 'Copenhagen', 5, 200);
+(4, 40, 3),
+(6, 40, 2),
+(8, 40, 4),
+(9, 40, 5),
+(14, 40, 1);
 
 INSERT INTO ProjectWorker (WorkerId, ProjectId, WorkerLocation, ProjectLocation) VALUES
-(11, 3, 'Copenhagen', 'Copenhagen'),
-(12, 3, 'Copenhagen', 'Copenhagen'),
-(13, 3, 'Copenhagen', 'Copenhagen'),
-(14, 3, 'Copenhagen', 'Copenhagen'),
-(15, 3, 'Copenhagen', 'Copenhagen');
+(4, 2, 'Copenhagen', 'Copenhagen'),
+(6, 2, 'Copenhagen', 'Copenhagen'),
+(8, 2, 'Copenhagen', 'Copenhagen'),
+(9, 3, 'Copenhagen', 'Helsinki'),
+(12, 2, 'Helsinki', 'Copenhagen'),
+(14, 2, 'Copenhagen', 'Copenhagen'),
