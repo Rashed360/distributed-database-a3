@@ -27,35 +27,38 @@ services:
           target: /app
           action: sync
 
-  postgres:
+  db-helsinki:
     image: postgres:17
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydb
-    volumes:
-      - ./db/init-postgres.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - '5432:5432'
+      - '54321:5432'
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/1_init.sql
+      - ./db/helsinki.sql:/docker-entrypoint-initdb.d/2_data.sql
 
-  mongodb:
-    image: mongo:4.4
+  db-stockholm:
+    image: postgres:17
     environment:
-      MONGO_INITDB_ROOT_USERNAME: user
-      MONGO_INITDB_ROOT_PASSWORD: password
-    volumes:
-      - ./db/init-mongo.js:/docker-entrypoint-initdb.d/init.js
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
     ports:
-      - '27017:27017'
+      - '54322:5432'
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/1_init.sql
+      - ./db/stockholm.sql:/docker-entrypoint-initdb.d/2_data.sql
 
-  mysql:
-    image: mysql:8
+  db-copenhagen:
+    image: postgres:17
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: mydb
-    volumes:
-      - ./db/init-mysql.sql:/docker-entrypoint-initdb.d/init.sql
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
     ports:
-      - '3306:3306'
+      - '54323:5432'
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/1_init.sql
+      - ./db/copenhagen.sql:/docker-entrypoint-initdb.d/2_data.sql

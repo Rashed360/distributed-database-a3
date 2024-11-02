@@ -1,10 +1,4 @@
-import localFont from 'next/font/local'
 import './globals.css'
-
-const geistSans = localFont({
-	src: './fonts/GeistVF.woff',
-	weight: '100 900',
-})
 
 export const metadata = {
 	title: 'Distributed Database Systems',
@@ -14,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={`${geistSans.className} antialiased`}>{children}</body>
+			<body className='antialiased'>{children}</body>
 		</html>
 	)
 }

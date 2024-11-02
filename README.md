@@ -2,7 +2,7 @@ This is an assignment project submitted to the "Distributed Database System" cou
 
 ## Running the application
 
-The app is perfectly dockerized, just clone the code and run the following command to build the containers:
+Clone the code and run the following command to build the containers:
 
 ```bash
 docker compose up
