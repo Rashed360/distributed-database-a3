@@ -18,4 +18,4 @@ INSERT INTO ProjectWorker (WorkerId, ProjectId, WorkerLocation, ProjectLocation)
 (12, 2, 'Helsinki', 'Copenhagen'),
 (12, 4, 'Helsinki', 'Helsinki'),
 (13, 3, 'Helsinki', 'Helsinki'),
-(13, 4, 'Helsinki', 'Helsinki'),
+(13, 4, 'Helsinki', 'Helsinki');

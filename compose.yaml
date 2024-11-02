@@ -34,6 +34,12 @@ services:
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/1_init.sql
       - ./db/helsinki.sql:/docker-entrypoint-initdb.d/2_data.sql
+    develop:
+      watch:
+        - path: ./db/init.sql
+          action: rebuild
+        - path: ./db/helsinki.sql
+          action: rebuild
 
   db-stockholm:
     image: postgres:17
