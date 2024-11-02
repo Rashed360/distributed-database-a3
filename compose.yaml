@@ -8,13 +8,9 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - postgres
-      - mongodb
-      - mysql
-    environment:
-      - DB_URL_PG=postgres://user:password@postgres:5432/mydb
-      - DB_URL_MONGO=mongodb://user:password@mongodb:27017/mydb
-      - DB_URL_MYSQL=mysql://user:password@mysql:3306/mydb
+      - db-helsinki
+      - db-stockholm
+      - db-copenhagen
     develop:
       watch:
         - path: ./package.json
