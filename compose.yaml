@@ -11,6 +11,10 @@ services:
       - db-helsinki
       - db-stockholm
       - db-copenhagen
+    environment:
+      - HELSI_DB_URL=postgres://user:password@db-helsinki:5432/mydb
+      - STOCK_DB_URL=postgres://user:password@db-stockholm:5432/mydb
+      - COPEN_DB_URL=postgres://user:password@db-copenhagen:5432/mydb
     develop:
       watch:
         - path: ./package.json
@@ -30,7 +34,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydb
     ports:
-      - '54321:5432'
+      - '5432:5432'
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/1_init.sql
       - ./db/helsinki.sql:/docker-entrypoint-initdb.d/2_data.sql
@@ -42,7 +46,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydb
     ports:
-      - '54322:5432'
+      - '5433:5432'
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/1_init.sql
       - ./db/stockholm.sql:/docker-entrypoint-initdb.d/2_data.sql
@@ -54,7 +58,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydb
     ports:
-      - '54323:5432'
+      - '5434:5432'
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/1_init.sql
       - ./db/copenhagen.sql:/docker-entrypoint-initdb.d/2_data.sql

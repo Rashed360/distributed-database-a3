@@ -3,9 +3,9 @@
 import { Pool } from 'pg'
 
 const clients = {
-	helsinki: new Pool({ connectionString: `postgres://user:password@localhost:54321/mydb` }),
-	stockholm: new Pool({ connectionString: `postgres://user:password@localhost:54322/mydb` }),
-	copenhagen: new Pool({ connectionString: `postgres://user:password@localhost:54323/mydb` }),
+	helsinki: new Pool({ connectionString: process.env.HELSI_DB_URL }),
+	stockholm: new Pool({ connectionString: process.env.STOCK_DB_URL }),
+	copenhagen: new Pool({ connectionString: process.env.COPEN_DB_URL }),
 }
 
 export async function fetchDataFromPostgres(location, table) {
