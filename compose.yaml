@@ -24,7 +24,7 @@ services:
           action: sync
 
   db-helsinki:
-    image: postgres:17
+    image: postgres:13
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
@@ -34,15 +34,9 @@ services:
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/1_init.sql
       - ./db/helsinki.sql:/docker-entrypoint-initdb.d/2_data.sql
-    develop:
-      watch:
-        - path: ./db/init.sql
-          action: rebuild
-        - path: ./db/helsinki.sql
-          action: rebuild
 
   db-stockholm:
-    image: postgres:17
+    image: postgres:13
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
@@ -54,7 +48,7 @@ services:
       - ./db/stockholm.sql:/docker-entrypoint-initdb.d/2_data.sql
 
   db-copenhagen:
-    image: postgres:17
+    image: postgres:13
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
